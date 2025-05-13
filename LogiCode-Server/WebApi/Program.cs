@@ -1,7 +1,10 @@
 using AutoMapper;
 using Core.Mapping;
 using Data;
+using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Service.c;
+using Service.Interfaces;
 using Service.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,10 +16,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IStudentRepository,StudentRepository>();
+builder.Services.AddScoped<IUserService,UserService>(); 
+builder.Services.AddScoped<IStudentService,StudentService>();
 builder.Services.AddDbContext<LogiCodeDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-
-//builder.Services.AddScoped<IUserService, IUserService>();
 
 var app = builder.Build();
 

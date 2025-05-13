@@ -8,8 +8,8 @@ namespace Core.DTO
 {
     public class Student:User
     {
-        public List<StudentCourse> StudentCourseIds { get; set; }
-        public List<StudentLesson> StudentLessonIds { get; set; }
+        public List<StudentCourse> StudentCourses { get; set; }
+        public List<StudentLesson> StudentLessons { get; set; }
 
 
 
