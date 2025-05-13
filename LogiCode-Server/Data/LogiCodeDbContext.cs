@@ -17,5 +17,6 @@ namespace Data
 
         public LogiCodeDbContext(DbContextOptions<LogiCodeDbContext> options) : base(options) { }
 
+
     }
 }
