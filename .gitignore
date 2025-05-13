@@ -22,6 +22,9 @@ out-tsc/
 package-lock.json
 npm-debug.log
 yarn-error.log
+# OAuth secrets
+*.json
+client_secret_*.json
 
 # Visual Studio Code
 .vscode/
