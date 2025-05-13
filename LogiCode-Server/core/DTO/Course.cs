@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.DTO
 {
+    public enum eLevel{easy=1,medןum=2,hard=4}
     public class Course
     {
         public int Id { get; set; }
@@ -14,7 +15,10 @@ namespace Core.DTO
         public string ProgrammingLanguage { get; set; }
         public int DurationHours { get; set; }
         public decimal Price { get; set; }
-        public List<int>LessonIds { get; set; }
+        public eLevel DurationMinutes { get; set; }
+        public string ImageUrl { get; set; }
+        public List<string> Points {  get; set; } 
+        public List<Lesson> Lessons { get; set; }
 
 
     }
