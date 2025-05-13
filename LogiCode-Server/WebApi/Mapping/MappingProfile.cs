@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Core;
+using Core.DTO;
 
 namespace Core.Mapping
 {
@@ -13,19 +14,14 @@ namespace Core.Mapping
         public MappingProfile()
         {
             CreateMap<DAO.User, DTO.User>().ReverseMap();
-            CreateMap<DAO.Course, DTO.Course>().ForMember(dest => dest.Lessons, opt => opt.MapFrom(src => src.Lessons.Select(l => l.Id)));
-            CreateMap<DTO.Course, DAO.Course>().ForMember(dest => dest.Lessons, opt => opt.Ignore()); 
+            CreateMap<DAO.Course, DTO.Course>().ReverseMap();
             CreateMap<DAO.Exercise,DTO.Exercise>().ReverseMap();
-            CreateMap<DAO.Lesson, DAO.Lesson>().ReverseMap(); 
-            CreateMap<DAO.Payment, DAO.Payment>().ReverseMap();
-            CreateMap<DAO.StudentCourse,DAO.StudentCourse>().ReverseMap();
-            CreateMap<DAO.StudentLesson,DAO.StudentLesson>().ReverseMap();
-            CreateMap<DAO.Teacher,DTO.Teacher>().ReverseMap();
-            CreateMap<DTO.Teacher, DAO.Teacher>().ReverseMap();
+            CreateMap<DAO.Lesson, DTO.Lesson>().ReverseMap(); 
+            CreateMap<DAO.Payment, DTO.Payment>().ReverseMap();
+            CreateMap<DAO.StudentCourse,DTO.StudentCourse>().ReverseMap();
+            CreateMap<DAO.StudentLesson, DTO.StudentLesson>().ReverseMap();
+            CreateMap<DAO.Teacher, DTO.Teacher>().ReverseMap();
             CreateMap<DAO.Student, DTO.Student>().ReverseMap();
-            CreateMap<DTO.Student, DAO.Student>().ReverseMap();
-            CreateMap<DAO.Student, DTO.Student>().ReverseMap();
-            CreateMap<DTO.Student, DAO.Student>().ReverseMap();
         }
     }
 }
