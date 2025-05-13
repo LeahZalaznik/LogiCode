@@ -5,6 +5,7 @@ namespace Data
 {
     public class LogiCodeDbContext:DbContext
     {
+        public DbSet<User> Users { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
