@@ -8,10 +8,10 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : AuthController
+    public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
-        public StudentController(IStudentService userService) : base(userService)
+        public StudentController(IStudentService userService) 
         {
             _studentService = userService;
         }
