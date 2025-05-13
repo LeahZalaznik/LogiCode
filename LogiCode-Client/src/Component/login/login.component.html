@@ -1,0 +1,45 @@
+<div class="login-page">
+    <div class="form">
+        <!-- טופס הרשמה -->
+        <form class="register-form was-validated" (ngSubmit)="register()">
+            <input type="text" placeholder="name" name="username" required [(ngModel)]="registrationData.name" />
+            <div class="valid-feedback">תקין.</div>
+            <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+            <input type="password" placeholder="password" name="password" required
+                [(ngModel)]="registrationData.password" />
+            <div class="valid-feedback">תקין.</div>
+            <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+            <input type="email" placeholder="email address" name="email" required
+                [(ngModel)]="registrationData.email" />
+            <div class="valid-feedback">תקין.</div>
+            <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-2">הרשמה</button>
+            <p class="message">כבר רשום? <a href="#">התחבר</a></p>
+        </form>
+
+        <!-- טופס התחברות (רק לעיצוב כרגע, את לא חייבת להשתמש בו) -->
+        <form class="login-form">
+            <input type="text" placeholder="username" />
+            <input type="password" placeholder="password" />
+            <button>login</button>
+            <p class="message">לא רשום? <a href="#">צור חשבון</a></p>
+
+            <div >
+                <button id="google-btn" (click)="signInWithGoogle()">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />    
+                    התחברות עם     
+                    
+                </button>
+            </div>
+
+            <div *ngIf="user">
+                <p>שלום {{ user?.name }}</p>
+                <p>{{ user?.email }}</p>
+                <button (click)="signOut()">התנתק</button>
+            </div>
+        </form>
+    </div>
+</div>
