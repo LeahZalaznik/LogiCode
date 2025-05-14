@@ -1,6 +1,6 @@
-﻿    using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Service.Repositories;
-
+using Core.DTO;
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
@@ -13,11 +13,11 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("google")]
-    public async Task<IActionResult> LoginWithGoogle([FromBody] string idToken)
+    public async Task<IActionResult> LoginWithGoogle([FromBody] TokenDto Token)
     {
         try
         {
-            var user = await _userService.AuthenticateWithGoogleAsync(idToken);
+            var user = await _userService.AuthenticateWithGoogleAsync(Token.Token);
             return Ok(user); // בעתיד אפשר גם להחזיר JWT
         }
         catch (Exception ex)
@@ -37,5 +37,10 @@ public class AuthController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+    }
+    [HttpDelete("")]
+    public async Task<IActionResult> delAsync(int id)
+    {
+        return Ok();
     }
 }

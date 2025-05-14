@@ -25,6 +25,12 @@ namespace Service.c
             _repository = repository;
             _userService=userService;
         }
+
+        public async Task<UserDto> addAsync(UserDto userDto)
+        {
+            return await _userService.addAsync(userDto);
+        }
+
         public async Task<UserDto> AuthenticateWithGoogleAsync(string idToken)
         {
            return await _userService.AuthenticateWithGoogleAsync(idToken);  
@@ -32,7 +38,6 @@ namespace Service.c
         public async Task<UserDto> GetByPasswordAsync(string password)
         {
             return await _userService.GetByPasswordAsync(password);
-
         }
   
     }

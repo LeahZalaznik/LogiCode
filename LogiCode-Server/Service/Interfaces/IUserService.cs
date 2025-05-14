@@ -11,5 +11,6 @@ namespace Service.Repositories
     {
         Task<User> AuthenticateWithGoogleAsync(string idToken);
         Task<User> GetByPasswordAsync(string password);
+        Task<User> addAsync(User userDto);
     }
 }

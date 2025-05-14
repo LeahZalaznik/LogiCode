@@ -22,6 +22,12 @@ namespace Service.c
             _mapper = mapper;
         }
 
+        public async Task<UserDto> addAsync(UserDto userDto)
+        {
+            User u = await _repository.AddAsync(_mapper.Map<User>(userDto));
+            return _mapper.Map<UserDto>(u);
+        }
+
         public async Task<UserDto> AuthenticateWithGoogleAsync(string idToken)
         {
             var payload = await GoogleJsonWebSignature.ValidateAsync(idToken);
@@ -53,6 +59,7 @@ namespace Service.c
             return _mapper.Map<UserDto>(existingUser);
 
         }
+
     }
 }
 

@@ -25,7 +25,14 @@ namespace Data
         public async Task<User> AddAsync(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine(ex.InnerException?.Message);
+            }
             return user;
         }
 

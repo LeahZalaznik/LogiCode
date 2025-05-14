@@ -1,18 +1,17 @@
 <div class="login-page">
     <div class="form">
         <!-- טופס הרשמה -->
-        <form class="register-form was-validated" (ngSubmit)="register()">
-            <input type="text" placeholder="name" name="username" required [(ngModel)]="registrationData.name" />
+        <form class="register-form was-validated" (ngSubmit)="registerWithPassword()">
+            <input type="text" placeholder="name" id="name" name="username" required [(ngModel)]="registrationDataForm.name"  />
+            <div class="valid-feedback">תקין.</div>
+            <div class="invalid-feedback">אנא מלא שדה זה.</div>
+            <input type="password" placeholder="password" id="password" name="password" required
+                [(ngModel)]="registrationDataForm.password" />
             <div class="valid-feedback">תקין.</div>
             <div class="invalid-feedback">אנא מלא שדה זה.</div>
 
-            <input type="password" placeholder="password" name="password" required
-                [(ngModel)]="registrationData.password" />
-            <div class="valid-feedback">תקין.</div>
-            <div class="invalid-feedback">אנא מלא שדה זה.</div>
-
-            <input type="email" placeholder="email address" name="email" required
-                [(ngModel)]="registrationData.email" />
+            <input type="email" placeholder="email address" id="email" name="email" required
+                [(ngModel)]="registrationDataForm.email" />
             <div class="valid-feedback">תקין.</div>
             <div class="invalid-feedback">אנא מלא שדה זה.</div>
 
@@ -28,18 +27,14 @@
             <p class="message">לא רשום? <a href="#">צור חשבון</a></p>
 
             <div >
-                <button id="google-btn" (click)="signInWithGoogle()">
-                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />    
-                    התחברות עם     
-                    
-                </button>
+               <asl-google-signin-button></asl-google-signin-button>
             </div>
 
-            <div *ngIf="user">
+            <!-- <div *ngIf="user">
                 <p>שלום {{ user?.name }}</p>
                 <p>{{ user?.email }}</p>
                 <button (click)="signOut()">התנתק</button>
-            </div>
+            </div> -->
         </form>
     </div>
 </div>

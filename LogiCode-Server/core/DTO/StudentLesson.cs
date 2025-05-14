@@ -8,6 +8,7 @@ namespace Core.DTO
 {
     public class StudentLesson
     {
+        public int Id { get; set; }
         public int StudentId { get; set; }
         public int LessonId { get; set; }
         public bool IsWatched { get; set; }

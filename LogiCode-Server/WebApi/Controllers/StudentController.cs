@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core.DTO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Service.c;
 using Service.Interfaces;
@@ -11,16 +13,17 @@ namespace WebApi.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
-        public StudentController(IStudentService userService) 
+        
+        public StudentController(IStudentService studentService) 
         {
-            _studentService = userService;
+            _studentService = studentService;
         }
         [HttpPost("google")]
-        public async Task<IActionResult> LoginWithGoogle([FromBody] string idToken)
+        public async Task<IActionResult> LoginWithGoogle([FromBody] TokenDto Token)
         {
             try
             {
-                var user = await _studentService.AuthenticateWithGoogleAsync(idToken);
+                var user = await _studentService.AuthenticateWithGoogleAsync(Token.Token);
                 return Ok(user); // בעתיד אפשר גם להחזיר JWT
             }
             catch (Exception ex)
@@ -28,13 +31,27 @@ namespace WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("")]
-        public async Task<IActionResult> LoginWithPassword([FromBody] string password)
+        [HttpGet("s")]
+        public async Task<IActionResult> LoginWithPasswordAsync([FromBody] string password)
         {
             try
             {
                 var user = await _studentService.GetByPasswordAsync(password);
                 return Ok(user); // בעתיד אפשר גם להחזיר JWT
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> addStudentAsync([FromBody] Student user)
+        {
+            try
+            {
+                var re =await  _studentService.addAsync(user);
+                return Ok(re);
             }
             catch (Exception ex)
             {
