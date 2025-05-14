@@ -43,7 +43,8 @@ namespace Service.c
             {
                 GoogleId = payload.Subject,
                 Name = payload.Name,
-                Email = payload.Email
+                Email = payload.Email,
+                PotoUrl = payload.Picture
             };
 
             var addedUser = await _repository.AddAsync(newUser);
