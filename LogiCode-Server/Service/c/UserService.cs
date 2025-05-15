@@ -51,7 +51,6 @@ namespace Service.c
                 throw new ArgumentException("not found");  
             }
             return _mapper.Map<UserDto>(existingUser);
-
         }
     }
 }

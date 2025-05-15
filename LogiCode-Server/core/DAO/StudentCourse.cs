@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.DAO
 {
-    public  class StudentCourse
+    public class StudentCourse
     {
         public int Id { get; set; }
         public int StudentId { get; set; }

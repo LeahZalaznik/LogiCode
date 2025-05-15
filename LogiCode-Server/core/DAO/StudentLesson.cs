@@ -17,7 +17,7 @@ namespace Core.DAO
 
         public bool IsWatched { get; set; }
         public DateTime? WatchedOn { get; set; }
-        public double? ExerciseScore { get; set; } 
+        public double? ExerciseScore { get; set; }
 
     }
 }

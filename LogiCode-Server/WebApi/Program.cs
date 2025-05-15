@@ -20,7 +20,7 @@ builder.Services.AddScoped<IStudentRepository,StudentRepository>();
 builder.Services.AddScoped<IUserService,UserService>(); 
 builder.Services.AddScoped<IStudentService,StudentService>();
 builder.Services.AddDbContext<LogiCodeDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+//builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
