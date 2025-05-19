@@ -1,0 +1,30 @@
+
+בהחלט! קובץ `.gitignore` עבור פרויקט C# ו-Angular יכול להיראות כך:
+
+```
+# .NET
+bin/
+obj/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+*.vs/
+*.vscode/
+
+# Angular
+node_modules/
+dist/
+out-tsc/
+*.js
+*.map
+*.lock
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET Core
+appsettings*.json
