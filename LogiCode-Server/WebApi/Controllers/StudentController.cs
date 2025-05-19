@@ -13,8 +13,8 @@ namespace WebApi.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
-        
-        public StudentController(IStudentService studentService) 
+
+        public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
@@ -50,7 +50,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var re =await  _studentService.addAsync(user);
+                var re = await _studentService.addAsync(user);
                 return Ok(re);
             }
             catch (Exception ex)
@@ -58,5 +58,8 @@ namespace WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+
     }
 }

@@ -38,14 +38,12 @@ namespace Service.c
             {
                 return  _mapper.Map<UserDto>(existingUser);
             }
+            User newUser = new User();
+            newUser.PotoUrl = payload.Picture;
+            newUser.Email = payload.Email;
+            newUser.GoogleId = payload.Subject;
+            newUser.Name = payload.Name;
 
-            var newUser = new User
-            {
-                GoogleId = payload.Subject,
-                Name = payload.Name,
-                Email = payload.Email,
-                PotoUrl = payload.Picture
-            };
 
             var addedUser = await _repository.AddAsync(newUser);
             return _mapper.Map<UserDto>(addedUser);
