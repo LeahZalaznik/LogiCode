@@ -122,4 +122,38 @@ body {
   #google-btn:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-  
+ ::ng-deep asl-google-signin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #444;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* אייקון של גוגל */
+::ng-deep asl-google-signin-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* אפקט ריחוף */
+::ng-deep asl-google-signin-button:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* עטיפת הכפתור */
+.google-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

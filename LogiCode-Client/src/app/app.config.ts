@@ -4,12 +4,24 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { SocialAuthServiceConfig, GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
+    importProvidersFrom(CommonModule),
     importProvidersFrom(SocialLoginModule),
     {
       provide: 'SocialAuthServiceConfig',
@@ -30,6 +42,20 @@ export const appConfig: ApplicationConfig = {
           console.error('שגיאה בהתחברות עם גוגל', err);
         }
       } as SocialAuthServiceConfig
-    }
+    },
+    importProvidersFrom(
+      BrowserAnimationsModule,
+      BrowserAnimationsModule,
+      MatToolbarModule,
+      MatMenuModule,
+      MatIconModule,
+      MatButtonModule,
+      MatSlideToggleModule,
+      MatSnackBarModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatCardModule
+    ),
   ]
 };

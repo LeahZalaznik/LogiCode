@@ -1,0 +1,77 @@
+<!-- באנר או תמונת רקע -->
+<div class="">
+  <img class="card-img-top" src="לוגיקוד - קוד כך פשוט - ללמוד תכנות בקלות_files/pics/אזור אישי.png" alt="Card image"
+    style="width:100%">
+</div>
+<!-- תוכן נוסף -->
+
+<div class="container-fluid-mt-3">
+  <div class="row">
+    <!-- תפריט צד -->
+    <div class="col-md-3">
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'courses'"
+          (click)="selectTab('courses')">
+          <i class="fa-solid fa-graduation-cap"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small;"></i> הקורסים שלי
+        </button>
+        <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'books'"
+          (click)="selectTab('books')">
+          <i class="fa-solid fa-book-open"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small; "></i> הספרים שלי
+        </button>
+
+        <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'orders'"
+          (click)="selectTab('orders')">
+          <i class="fa-solid fa-shopping-basket"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small;">
+          </i>
+          הזמנות
+        </button>
+        <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'profile'"
+          (click)="selectTab('profile')">
+          <i class="fa-solid fa-user-alt"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small;"></i>
+          פרופיל אישי
+        </button>
+        <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'support'"
+          (click)="selectTab('support')">
+          <i class="fa-solid fa-question-circle"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small;"></i>
+          תמיכה
+        </button>
+          <button class="list-group-item list-group-item-action" [class.active]="selectedTab === 'taskes'"
+          (click)="selectTab('taskes')">
+          <i class="fa-solid fa-question-circle"
+            style="color:#00c7c7; content: \f291; font-family: Font Awesome 6 Free;font-size: small;"></i>
+          שורת המשימות
+        </button>
+      </div>
+    </div>
+
+    <!-- תוכן -->
+    <div class="col-md-9">
+      <!-- 
+      <app-books *ngIf="selectedTab === 'books'"></app-my-books>
+      <app-profile *ngIf="selectedTab === 'profile'"></app-profile>
+      <app-support *ngIf="selectedTab === 'support'"></app-support>  
+      -->
+      @if(selectedTab==='support'){
+      <app-support></app-support>
+      }
+      @if(selectedTab==='orders'){
+      <app-orders></app-orders>
+      }
+      @if(selectedTab==='courses'){
+      <app-courses></app-courses>
+      }
+      @if(selectedTab==='profile'){
+      <app-profile></app-profile>
+      }
+        @if(selectedTab==='taskes'){
+      <app-task-manager></app-task-manager>
+      }
+
+    </div>
+  </div>
+</div>

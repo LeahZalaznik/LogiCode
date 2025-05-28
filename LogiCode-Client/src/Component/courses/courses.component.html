@@ -1,1 +1,11 @@
-<p>courses-component works!</p>
+@if(courses.length==0)
+{
+<p>אין לך קורסים</p>
+}
+@else {
+<div>
+    @for(c of courses;track $index){
+    <p>רשימת כרטיסים....</p>
+    }
+</div>
+}

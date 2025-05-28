@@ -1,0 +1,66 @@
+<div class="login-page">
+    <div class="form">
+  <!-- טופס הרשמה -->
+   <div>
+  <form class="register-form was-validated" (ngSubmit)="registerWithPassword()"   #form="ngForm" >
+    
+    <!-- שם -->
+    <input
+      type="text"
+      placeholder="שם"
+      id="name"
+      name="name" 
+      required
+      [(ngModel)]="registrationDataForm.name"
+      class="form-control"
+    />
+    <div class="valid-feedback">תקין.</div>
+    <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+    <!-- סיסמה -->
+    <input
+      type="password"
+      placeholder="סיסמה"
+      id="password"
+      name="password"
+      required
+      [(ngModel)]="registrationDataForm.password"
+      class="form-control"
+    />
+    <div class="valid-feedback">תקין.</div>
+    <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+    <!-- אימייל -->
+    <input
+      type="email"
+      placeholder="אימייל"
+      id="email"
+      name="email"
+      required
+      [(ngModel)]="registrationDataForm.email"
+      class="form-control"
+    />
+    <div class="valid-feedback">תקין.</div>
+    <div class="invalid-feedback">אנא מלא שדה זה.</div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-2">הרשמה</button>
+    <p class="message">כבר רשום? <a href="#">התחבר</a></p>
+  </form>
+
+   </div>
+        <!-- טופס התחברות (רק לעיצוב כרגע, את לא חייבת להשתמש בו) -->
+        <form class="login-form">
+            <input type="text" placeholder="username" />
+            <input type="password" placeholder="password" />
+            <button>login</button>
+            <p class="message">לא רשום? <a href="#">צור חשבון</a></p>
+
+            <div>
+                <div class="google-button-wrapper">
+                    <asl-google-signin-button></asl-google-signin-button>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

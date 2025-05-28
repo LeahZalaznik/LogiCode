@@ -1,0 +1,33 @@
+@import "primeicons/primeicons.css";
+.home-banner {
+  text-align: center;
+  margin-top: 2px;
+}
+.banner-img {
+  width: 100%;
+  height:auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+.home-content {
+  text-align: center;
+  padding: 2rem;
+}
+.container-fluid-mt-3{
+  padding: 75px;
+  direction: rtl;
+}
+.list-group-item {
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  i {
+    margin-left: 2px;
+  }
+}
+.list-group-item.active {
+  background-color: #00cfd5;
+  border-color: #00cfd5;
+  color: white;
+}
+

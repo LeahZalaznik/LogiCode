@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="text-center" style="color: #00B8C8;">פרופיל אישי</h2>
+  <form  [formGroup]="myForm" (ngSubmit)="updateUser()">
+    <div class="mb-3">
+      <label for="name" class="form-label">שם משפחה:*</label>
+      <input type="text" id="name" name="name" class="form-control" formControlName="name" placeholder="זן שם משפחה">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">סיסמה*</label>
+      <input type="text" id="password" name="password" class="form-control" formControlName="password"
+        placeholder="הזן סיסמא">
+      <!-- @if(Gpassword?.valid )
+      {
+      <p>שגיאה</p>
+      } -->
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">מייל:*</label>
+      <input type="email" id="email" class="form-control" formControlName="email" placeholder="זן כתובת אימייל">
+      @if(!Gemail?.valid && (Gemail?.dirty || Gemail?.touched))
+      {
+      @if(Gemail?.errors!['required'])
+      {
+      <p>שדה חובה</p>
+      }
+      }
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="myForm?.invalid">עדכן פרטים אישיים</button>
+  </form>
+</div>

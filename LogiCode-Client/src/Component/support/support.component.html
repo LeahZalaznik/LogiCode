@@ -1,0 +1,43 @@
+<div class="small-container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit($event)">
+    <!-- שם -->
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" formControlName="name">
+    @if (name.touched && name.invalid) {
+      <div class="error">
+        @if (name.errors?.['required']) {
+          <small>שדה שם הוא חובה</small>
+        }
+      </div>
+    }
+    <!-- אימייל -->
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" formControlName="email">
+    @if (Gemail.touched && Gemail.invalid) {
+      <div class="error">
+        @if (Gemail.errors?.['required']) {
+          <small>שדה אימייל הוא חובה</small>
+        }
+        @if (Gemail.errors?.['email']) {
+          <small>כתובת אימייל לא תקינה</small>
+        }
+      </div>
+    }
+
+    <!-- הודעה -->
+    <label for="message">Message</label>
+    <textarea id="message" name="message" formControlName="message" rows="10"></textarea>
+    @if (message.touched && message.invalid) {
+      <div class="error">
+        @if (message.errors?.['required']) {
+          <small>שדה הודעה הוא חובה</small>
+        }
+      </div>
+    }
+
+    <!-- honeypot -->
+    <input type="text" name="_gotcha" style="display: none">
+
+    <input type="submit" value="Send" [disabled]="myForm.invalid">
+  </form>
+</div>

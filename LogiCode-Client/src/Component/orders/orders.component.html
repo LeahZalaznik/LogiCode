@@ -1,0 +1,20 @@
+@if(orders?.length==0)
+{
+<p>אין לך קורסים</p>
+}
+@else {
+<div>
+    <div class="small-container">
+        <form action="https://formspree.io/taniarascia@gmail.com" method="post">
+            <ul class="list-group">
+                @for(c of orders;track $index){
+                <li class="list-group-item">
+                    <button></button>
+                </li>
+                }
+                   </ul>
+        </form>
+     
+    </div>
+</div>
+}

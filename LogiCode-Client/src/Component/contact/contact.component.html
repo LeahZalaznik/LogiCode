@@ -1,7 +1,17 @@
-<p>contact works!</p>
+<div class="login-page">
+  <div class="form">
+    <!-- <div class="toggle-wrapper">
+      <mat-slide-toggle [(ngModel)]="isRegisterMode" color="primary">
+        {{ isRegisterMode ? 'מעבר להתחברות' : 'מעבר להרשמה' }}
+      </mat-slide-toggle>
+    </div> -->
 
-  <div>
-     <app-login></app-login>
+    <div class="auth-content">
+      @if (isRegisterMode) {
+        <app-register></app-register>
+      } @else {
+        <app-login></app-login>
+      }
+    </div>
   </div>
-
-
+</div>

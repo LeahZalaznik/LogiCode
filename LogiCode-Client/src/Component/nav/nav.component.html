@@ -1,14 +1,42 @@
 <nav>
     <div>
-        <a><img src="Logicode_NoSlogan.svg" alt="" routerLink="./"></a>
+        <a routerLink="/"><img class="logo" src="Logicode_NoSlogan.svg" alt="" /></a>
     </div>
 
     <div class="links">
         <a routerLink="/cart">
             <i class="pi pi-shopping-cart" style="color:#00c7c7; font-size: 2rem;"></i>
         </a>
-        <a routerLink="/contact">
-            <i class="pi pi-user" style="color:#00c7c7; font-size: 2rem;"></i>
+
+        <a routerLink="/personal-area" class="user-area">
+            <ng-template #defaultIcon>
+                <i class="pi pi-user" style="color:#00c7c7; font-size: 2rem;"></i>
+            </ng-template>
         </a>
+
+        <div class="user-actions flex justify-between">
+            <ng-container *ngIf="current$ | async as user; else loginBtn">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <img [src]="user.potoUrl" class="w-10 h-10 rounded-full border shadow" />
+                </button>
+
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="goToProfile()">
+                        <mat-icon>person</mat-icon>
+                        <span>אזור אישי</span>
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>logout</mat-icon>
+                        <span>התנתקות</span>
+                    </button>
+                </mat-menu>
+            </ng-container>
+
+            <ng-template #loginBtn>
+                <button mat-icon-button (click)="goToLogin()">
+                     <i class="pi pi-user" style="color:#00c7c7; font-size: 2rem;"></i>
+                </button>
+            </ng-template>
+       </div>
     </div>
 </nav>

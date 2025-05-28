@@ -1,0 +1,10 @@
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+mat-slide-toggle {
+  direction: rtl; /* כדי שהטקסט יהיה בצד ימין */
+  font-family: "Roboto", sans-serif;
+}
