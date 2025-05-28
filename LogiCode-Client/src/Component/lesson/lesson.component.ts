@@ -1,17 +1,18 @@
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { LessonService } from '../../Services/lesson-service.service';
 import { Lesson } from '../../Class/Lesson';
+import { NavLessonsComponent } from "../nav-lessons/nav-lessons.component";
 
 @Component({
   selector: 'lesson',
   templateUrl: './lesson.component.html',
-  styleUrls: ['./lesson.component.css']
+  styleUrls: ['./lesson.component.css'],
+  imports: [NavLessonsComponent]
 })
 export class LessonComponent implements OnInit, AfterViewInit {
 
   Lessons: Array<Lesson> = [];
   @ViewChild('LessonContainer') LessonContainer!: ElementRef;
-
   constructor(public ls: LessonService) {}
 
   ngOnInit(): void {

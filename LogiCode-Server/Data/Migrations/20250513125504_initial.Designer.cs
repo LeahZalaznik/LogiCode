@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(LogiCodeDbContext))]
-    partial class LogiCodeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250513125504_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,37 +129,6 @@ namespace Data.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("lessons");
-
-                    b.ToTable("Lessons");
-                });
-
-            modelBuilder.Entity("Core.DAO.MyTask", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("MyTasks");
-
                 });
 
             modelBuilder.Entity("Core.DAO.Payment", b =>
@@ -188,36 +160,8 @@ namespace Data.Migrations
                     b.HasIndex("CourseId");
 
                     b.HasIndex("StudentId");
+
                     b.ToTable("payment");
-         b.ToTable("Payment");
-                });
-
-            modelBuilder.Entity("Core.DAO.Student", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GoogleId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PotoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Core.DAO.StudentCourse", b =>
@@ -252,11 +196,8 @@ namespace Data.Migrations
 
                     b.HasIndex("StudentId");
 
-
                     b.ToTable("studentCourses");
-
-                    b.ToTable("StudentCourses");             
-                    });
+                });
 
             modelBuilder.Entity("Core.DAO.StudentLesson", b =>
                 {
@@ -288,8 +229,6 @@ namespace Data.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("studentLessons");
-
-                    b.ToTable("StudentLessons");
                 });
 
             modelBuilder.Entity("Core.DAO.Teacher", b =>
@@ -315,9 +254,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("teachers");
-
-                    b.ToTable("Teachers");
-
                 });
 
             modelBuilder.Entity("Core.DAO.User", b =>
@@ -333,20 +269,17 @@ namespace Data.Migrations
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
 
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GoogleId")
-
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
 
                     b.HasKey("Id");
 
@@ -362,15 +295,6 @@ namespace Data.Migrations
                     b.HasBaseType("Core.DAO.User");
 
                     b.HasDiscriminator().HasValue("Student");
-
-                    b.Property<string>("PotoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-
                 });
 
             modelBuilder.Entity("Core.DAO.Course", b =>
@@ -405,17 +329,6 @@ namespace Data.Migrations
 
                     b.Navigation("Course");
                 });
-
-
-            modelBuilder.Entity("Core.DAO.MyTask", b =>
-                {
-                    b.HasOne("Core.DAO.Student", null)
-                        .WithMany("StudentTasks")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
 
             modelBuilder.Entity("Core.DAO.Payment", b =>
                 {
@@ -489,7 +402,6 @@ namespace Data.Migrations
                     b.Navigation("StudentLessons");
                 });
 
-
             modelBuilder.Entity("Core.DAO.Teacher", b =>
                 {
                     b.Navigation("Courses");
@@ -500,15 +412,6 @@ namespace Data.Migrations
                     b.Navigation("StudentCourses");
 
                     b.Navigation("StudentLessons");
-
-
-                    b.Navigation("StudentTasks");
-                });
-
-            modelBuilder.Entity("Core.DAO.Teacher", b =>
-                {
-                    b.Navigation("Courses");
-
                 });
 #pragma warning restore 612, 618
         }

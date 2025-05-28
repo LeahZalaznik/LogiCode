@@ -21,6 +21,8 @@ namespace Data
         }
 
 
+<<<<<<< HEAD
+=======
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    if (!optionsBuilder.IsConfigured)
@@ -29,5 +31,6 @@ namespace Data
         //    }
 
         //}
+>>>>>>> f9ea2cca7c1ae974eba93c090a6a49cfbb3267b3
     }
 }

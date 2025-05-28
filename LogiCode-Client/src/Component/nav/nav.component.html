@@ -1,8 +1,8 @@
 <nav>
     <div>
         <a routerLink="/"><img class="logo" src="Logicode_NoSlogan.svg" alt="" /></a>
-    </div>
 
+    </div>
     <div class="links">
         <a routerLink="/cart">
             <i class="pi pi-shopping-cart" style="color:#00c7c7; font-size: 2rem;"></i>
@@ -13,7 +13,6 @@
                 <i class="pi pi-user" style="color:#00c7c7; font-size: 2rem;"></i>
             </ng-template>
         </a>
-
         <div class="user-actions flex justify-between">
             <ng-container *ngIf="current$ | async as user; else loginBtn">
                 <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -38,5 +37,6 @@
                 </button>
             </ng-template>
        </div>
+
     </div>
 </nav>
