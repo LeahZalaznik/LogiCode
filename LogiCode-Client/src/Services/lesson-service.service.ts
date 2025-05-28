@@ -67,4 +67,5 @@ export class LessonService {
     this.Lessons.push(new Lesson(lesson.id, lesson.title, lesson.content, lesson.videoUrl))
   }
   Lessons: Array<Lesson> = new Array<Lesson>()
+  courseName:string=''
 }
