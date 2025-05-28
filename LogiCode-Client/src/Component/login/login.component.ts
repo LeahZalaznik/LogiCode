@@ -69,7 +69,6 @@ export class LoginComponent implements OnInit {
   }
   registerWithPassword() {
     console.log('hkjnl');
-
     this.ss.registerWithPassword(this.registrationDataForm)
       .subscribe(response => {
         console.log(response);
