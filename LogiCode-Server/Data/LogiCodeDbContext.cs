@@ -9,14 +9,28 @@ namespace Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<StudentCourse> studentCourses { get; set; }
-        public DbSet<Teacher> teachers { get; set; }
-        public DbSet<StudentLesson> studentLessons { get; set; }    
-        public DbSet<Payment> payment { get; set; }
-        public DbSet<Lesson> lessons { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<StudentLesson> StudentLessons { get; set; }    
+        public DbSet<Payment> Payment { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
 
-        public LogiCodeDbContext(DbContextOptions<LogiCodeDbContext> options) : base(options) { }
+        public DbSet<MyTask> MyTasks { get; set; }
+        public LogiCodeDbContext(DbContextOptions<LogiCodeDbContext> options) : base(options)
+        {
+        }
 
 
+<<<<<<< HEAD
+=======
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Server=.;Database=LogiCodeDb;Trusted_Connection=True;TrustServerCertificate=True;");
+        //    }
+
+        //}
+>>>>>>> f9ea2cca7c1ae974eba93c090a6a49cfbb3267b3
     }
 }

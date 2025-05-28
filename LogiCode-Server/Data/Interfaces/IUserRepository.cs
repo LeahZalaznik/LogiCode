@@ -15,6 +15,9 @@ namespace Data
         Task<User> GetByPasswordAsync(string password);
         Task<User> UpdateAsync(User user);
         Task<User> DeleteAsync(string idToken);
+        Task<List<User>> GetAllAsync();
+        Task<List<Student>> GetAllStudentsAsync();
+
 
     }
 }

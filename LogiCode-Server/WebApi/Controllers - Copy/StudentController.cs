@@ -14,21 +14,22 @@ namespace WebApi.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
-          
+
         public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>>GetAll()
+        public async Task<ActionResult<IEnumerable<Student>>> GetAll()
         {
 
-            var users = await _studentService.GetAllAsync();
+            var users = await _studentService.GetAllStudentsAsync();
             return Ok(users); // בעתיד אפשר גם להחזיר JWT
         }
-            [HttpPost("google")]
-        public async Task<IActionResult> LoginWithGoogle([FromBody] TokenDto Token)
+        
+        [HttpPost("google")]
+        public async Task<IActionResult> LoginWithGoogleAsinc([FromBody] TokenDto Token)
         {
             try
             {
@@ -60,6 +61,20 @@ namespace WebApi.Controllers
             try
             {
                 var re = await _studentService.addAsync(user);
+                return Ok(re);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> update([FromBody] Student user)
+        {
+            try
+            {
+                var re = await _studentService.UpdateAsync(user);
                 return Ok(re);
             }
             catch (Exception ex)

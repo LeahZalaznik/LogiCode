@@ -22,6 +22,7 @@ namespace Core.Mapping
             CreateMap<DAO.StudentLesson, DTO.StudentLesson>().ReverseMap();
             CreateMap<DAO.Teacher, DTO.Teacher>().ReverseMap();
             CreateMap<DAO.Student, DTO.Student>().ReverseMap();
+            CreateMap<DAO.MyTask, DTO.MyTask>().ReverseMap();
         }
     }
 }

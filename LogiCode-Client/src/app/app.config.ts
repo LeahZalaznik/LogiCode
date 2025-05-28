@@ -1,12 +1,16 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { SocialAuthServiceConfig, GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-    importProvidersFrom(SocialLoginModule
-    ),
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient(),
+    importProvidersFrom(SocialLoginModule),
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -15,7 +19,10 @@ export const appConfig: ApplicationConfig = {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '894092183213-4rc7qhnstanpbqdbbi18j1516ns8ibf8.apps.googleusercontent.com'
+              '894092183213-4rc7qhnstanpbqdbbi18j1516ns8ibf8.apps.googleusercontent.com',
+              {
+                oneTapEnabled: false,
+              }
             )
           }
         ],
