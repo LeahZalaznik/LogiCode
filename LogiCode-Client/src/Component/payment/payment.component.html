@@ -1,0 +1,110 @@
+<div class="overlay" [ngClass]="{'active': isOpen}"></div>
+<div class="body">
+    <form [formGroup]="form!">
+        <p>פרטי חיוב</p>
+        <div class="contain">
+            <div class="box">
+                <label for="firstName">שם פרטי
+                    <abbr>*</abbr>
+                </label>
+                <input type="text" name="firstName" formControlName="firstName"
+                    [ngClass]="{'error': gFirstName?.touched && gLastName?.invalid}" required>
+            </div>
+            <div class="box">
+                <label for="lastName">שם משפחה
+                    <abbr>*</abbr>
+                </label>
+                <input type="text" name="lastName" formControlName="lastName"
+                    [ngClass]="{'error': gLastName?.touched && gLastName?.invalid}" required>
+            </div>
+            <div class="box">
+                <label for="phone">טלפון
+                    <abbr>*</abbr>
+                </label>
+                <input type="text" name="phone" formControlName="phone"
+                    [ngClass]="{'error': gPhone?.touched && gPhone?.invalid}" required>
+            </div>
+            <div class="box">
+                <label for="email">כתובת אימייל
+                    <abbr>*</abbr>
+                </label>
+                <input type="email" name="email" formControlName="email"
+                    [ngClass]="{'error': gEmail?.touched && gEmail?.invalid}" required>
+            </div>
+        </div>
+    </form>
+    <form class="details">
+        <p class="od">פרטי הזמנה</p>
+        <div class="container mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>מוצר</th>
+                        <th>סכום ביניים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of scs.courses; track $index) {
+                    <tr>
+                        <th class="right">{{item.Title}}</th>
+                        <th class="left">{{item.Price}}</th>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="btns">
+    <app-google-pay></app-google-pay>
+    <button class="btn" [disabled]="form?.invalid" (click)="openPay()">לתשלום באמצעות מספר אשראי</button>
+</div>
+<div class="container my-5 py-5" [ngClass]="{'open': isOpen}">
+    <div class="row d-flex justify-content-center py-5">
+        <svg (click)="openPay()" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000">
+        <path
+            d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z" />
+    </svg>
+        <div class="col-md-7 col-lg-5 col-xl-4">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                    <form>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                <label class="form-label" for="typeText">Card Number</label>
+                            </div>
+                            <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                                    placeholder="Cardholder's Name" />
+                                <label class="form-label" for="typeName">Cardholder's Name</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center pb-2">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="typeExp" class="form-control form-control-lg"
+                                    placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                                <label class="form-label" for="typeExp">Expiration</label>
+                            </div>
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="password" id="typeText2" class="form-control form-control-lg"
+                                    placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                <label class="form-label" for="typeText2">Cvv</label>
+                            </div>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init (click)="updatePay()"
+                                class="btn btn-info btn-lg btn-rounded">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

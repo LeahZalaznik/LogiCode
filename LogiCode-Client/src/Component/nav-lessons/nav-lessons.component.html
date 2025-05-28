@@ -1,29 +1,23 @@
-<div class="offcanvas offcanvas-end" id="demo">
-    <div class="offcanvas-header">
-      <h1 class="offcanvas-title">Heading</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+<div class="list-group list-group-flush border-bottom scrollarea general">
+  <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight courseName" aria-current="true">
+    <div class="d-flex w-100 align-items-center justify-content-between">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+        <path
+          d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+      </svg>
+      <strong class="mb-1">{{ls.courseName}} </strong>
     </div>
-    <div class="offcanvas-body">
-        <div class="col-md-3">
-            <div class="list-group">
-                <div>
-                    @for (lesson of lessons; track $index) {
-                    <a class="list-group-item list-group-item-action">
-        
-                        {{ lesson.title }}
-                    </a>
-                    }
-                </div>
-            </div>
-        </div>
-      <button class="btn btn-secondary" type="button">A Button</button>
+  </a>
+  @for (lesson of ls.Lessons; track $index) {
+  <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight lessonsName" aria-current="true" (click)="navigateToRoute(lesson)">
+    <div class="d-flex w-100 align-items-center justify-content-between">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#B7B7B7">
+        <path
+          d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+      </svg>
+      <strong class="mb-1">{{lesson.title}} </strong>
     </div>
-  </div>
-  
-  <div class="container-fluid mt-3">
-    <h3>Right Offcanvas</h3>
-    <p>The .offcanvas-end class positions the offcanvas to the right of the page.</p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-      Toggle Right Offcanvas
-    </button>
-  </div>
+  </a>
+  }
+</div>
+<router-outlet></router-outlet>

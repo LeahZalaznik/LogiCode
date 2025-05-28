@@ -1,0 +1,69 @@
+.course-name {
+    position: absolute;
+    top: 25%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+    color: rgb(255 204 14);
+    font-size: 29px;
+    font-family: sans-serif;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+}
+.full-width {
+    width: 100%;
+}
+
+.row {
+    display: flex; 
+    margin-top: 20px; 
+}
+
+.course-details {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+}
+.description{
+    direction: rtl;
+}
+.lesson{
+   background-color: #b1eeee;
+    border-radius: 5px;
+    border-right: 5px solid #ffc30e;
+    width: 500px;
+    height: 50px;
+    margin-top: 50px;
+    float: inline-end;
+}
+.card{
+    position: absolute;
+    border-style: solid;
+    border-width: 5px 5px 5px 5px;
+    border-color: #e4f1f1;
+    right: 50%;
+}
+.icon-card{
+    color: #ffc30e;
+}
+.btn-secondary{
+   font-family: sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: #01c9c9;
+    margin-top: 50px;
+}
+.card-body{
+    align-items: center;
+    padding-top: 80px;
+    direction: rtl;
+    margin-right: 18px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
