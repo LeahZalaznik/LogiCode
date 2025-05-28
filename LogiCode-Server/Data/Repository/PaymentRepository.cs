@@ -14,14 +14,14 @@ namespace Data.Repository
 
         public async Task<Payment> AddPaymentAsync(Payment payment)
         {
-            _context.payment.Add(payment);
+            _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
             return payment;
         }
 
         public async Task<List<Payment>> GetPaymentsAsync()
         {
-            return _context.payment.ToList();
+            return _context.Payments.ToList();
         }
     }
 }
