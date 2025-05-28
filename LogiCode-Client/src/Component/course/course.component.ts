@@ -25,7 +25,6 @@ export class CourseComponent {
 
   onSelect(id?:number) {
     this.l = this.cs.course.Lessons?.find(ls => ls.id == id)!
-    this.l.isSelected = true
   }
 
   expandBorder() {
